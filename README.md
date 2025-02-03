@@ -3,6 +3,7 @@
 
 
 ## Problem Statement
+   ATliQ Hardware faces challenges in tracking employee attendance, understanding work preferences, and gaining insights into absenteeism trends due to reliance on Excel sheets. This lack of structured data makes it difficult for HR and management to optimize resources, plan capacity, and address employee well-being. A Power BI-based data analytics solution is proposed to provide real-time insights into attendance, absenteeism, and operational efficiency, supporting strategic planning, resource allocation, and employee engagement.
 
  
 
