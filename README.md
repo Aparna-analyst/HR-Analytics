@@ -173,38 +173,101 @@ DIVIDE('Measure Table'[WFH Count], 'Measure Table'[Present Days], 0)
 
 
  # Report Snapshot (Power BI DESKTOP)
- ![Image](https://github.com/user-attachments/assets/a7a56617-5af6-4b38-9570-262ac14b6047)
+ ![Image](https://github.com/user-attachments/assets/d12036ab-080f-4725-9854-443c13159d8c)
 
 # Insights
 
-Following inferences can be drawn from the dashboard;
+Here are insights and observations based on the provided dashboard:
+
+### **High-Level Observations**
+1. **Presence Insights:**
+   - The overall **Presence % is 91.83%**, indicating strong attendance.
+   - **WFH (Work from Home) percentage is 10%**, showing a reasonable proportion of remote work.
+   - **SL (Sick Leave) percentage is only 1.10%**, suggesting minimal health-related absenteeism.
+
+2. **Trend Analysis (by Date Charts):**
+   - **Presence % Trend:**  
+     The presence trend shows fluctuations but maintains consistency above 80% in most months.
+   - **WFH % Trend:**  
+     WFH days see noticeable spikes in certain periods, suggesting planned remote work schedules or special scenarios.
+   - **SL % Trend:**  
+     Sick leave percentages remain low but have sporadic spikes, possibly indicating health incidents during specific periods.
+
+3. **Day of the Week Insights:**  
+   - **Highest Presence:** Monday (93.21%) and Wednesday (92.11%) have the highest attendance rates.
+   - **WFH Preference:** Friday (13.01%) shows the highest WFH percentage, indicating a possible end-of-week remote work policy or employee preference.
+   - **SL Occurrence:** Monday (1.62%) has the highest sick leave percentage, which could suggest post-weekend health issues.
+
+---
+# **Presence Insights Report: April – June 2022**
+
+## **1. Overall Trend Analysis**
+| Metric       | April 2022  | May 2022  | June 2022  | Trend |
+|-------------|------------|------------|------------|---------|
+| **Presence %** | **94.05%** | **89.75%**  | **91.82%**  | **Decreased in May, recovered in June**  |
+| **WFH %** | **9.08%** | **11.23%**  | **9.44%**  | **Increased in May, then decreased** |
+| **SL %** | **0.43%** | **1.68%**  | **1.18%**  | **Spike in May, slight recovery in June** |
+
+- **Presence was highest in April (94.05%) but dropped in May (89.75%) due to increased WFH and SL%.**  
+- **WFH peaked in May (11.23%) but started decreasing in June (9.44%).**  
+- **Sick Leave (SL) was lowest in April (0.43%) but peaked in May (1.68%) before slightly improving in June (1.18%).**  
+
+## **2. Employee-Specific Trends**
+- **Highest Presence:**  
+  - April: **Adriel Pace & Adyson Moyer (100%)**  
+  - May: **Caylee Meadows (100%)**  
+  - June: **Aditya Walls, Adriel Pace & Adyson Moyer (100%)**  
+
+- **Lowest Presence:**  
+  - April: **Goerge carr (52.38%)**  
+  - May: **Kaylah Schultz (27.27%)**  
+  - June: **Avanna Atkins (0%) - On extended sick leave**  
+
+- **Highest WFH %:**  
+  - April: **George Carr (100%)**  
+  - May: **Gustavo Ritter (100%)**  
+  - June: **Alexander Davenport (100%)**  
+
+- **Highest SL %:**  
+  - April: **mckayla Parker (9.52%)**  
+  - May: **Ayanna Atkins (22.73%)**  
+  - June: **Emma Freeman (19.23%)**  
 
 
-### 1. **Key Insights**:
-   -  Delhi leads in revenue generation across all markets with 519.51 Million, with brick-and-mortar stores(482.84 M) contributing significantly more than e-commerce channels(36.68 M).
+## **3. Day-of-Week Trends**
+| Metric       | Best Presence Day | Lowest Presence Day | Most WFH Day | Highest Sick Leave Day |
+|-------------|------------------|------------------|-------------|-----------------|
+| **April** | **Monday (96.46%)** | **Thursday (90.42%)** | **Friday (12.15%)** | **Thursday (1.30%)** |
+| **May** | **Monday (90.74%)** | **Friday (86.54%)** | **Friday (15.93%)** | **Monday (2.41%)** |
+| **June** | **Tuesday (95.54%)** | **Friday (89.15%)** | **Monday (10.96%)** | **Monday (2.55%)** |
 
- -  While Delhi also leads in sales quantity(988K), the gap between revenue and sales quantity suggests higher average pricing or premium products are contributing to revenue
-   -  Revenue shows seasonal peaks around mid-year, with a declining trend in the most recent period (2020).
- -  "Electricalsara Stores" is the largest customer, contributing significantly to revenue(413.33 M), particularly in the brick-and-mortar segment.
-   - A significant portion of revenue(468.96M) is from a single product category marked as "(Blank)," followed by other key products like Prod040.
+ **Key Insights:**  
+- **Monday remains the highest sick leave day across  months**, suggesting employees may be extending weekends.  
+- **Friday consistently has the highest WFH percentage, peaking in May (15.93%).**  
+- **Presence is generally lower on Fridays, likely due to WFH preferences.**  
 
-     - **Action**: Investigate and resolve the "(Blank)" category to ensure better data integrity, and optimize inventory and marketing for top-performing products.
-## 2. **Profit Analysis**:
- - Bhubaneswar contributes the highest profit percentage (10.5%), while Lucknow has a negative profit contribution (-2.7%).
+## **4. Actionable Recommendations**
+### **A. Improve Presence & Reduce SL%**
+- Implement **wellness initiatives** to reduce sick leave, especially on **Mondays** when SL is highest.  
+- Monitor employees with consistently low presence (e.g., Avanna Atkins in June).  
 
- - Mumbai leads in profit contribution (23.9%), followed closely by Delhi (22.1%), showing strong profitability in these two markets.
+### **B. Optimize Work From Home Policy**
+- Since **Friday has the highest WFH% every month**, consider **formalizing a hybrid work policy** (e.g., designated remote days).  
+- Employees with **high WFH percentages** (e.g., **Alexander Davenport in June**) should be provided with collaboration tools for efficiency.  
 
- - Delhi dominates revenue contribution with 54.7%, followed by Mumbai (14.2%) and Ahmedabad (12.7%).
+### **C. Address Friday Absenteeism**
+- Since **Friday has the lowest presence across all three months**, explore **engagement strategies** like flexible hours, team activities, or early log-off options.  
 
-- Electricalsara Stores remains the top contributor with 46.2% of total revenue but has a low profit margin percentage (0.4%).
-- Surge Stores contributes only 2.8% of revenue but has one of the highest profit margins (6.2%), suggesting efficient operations.
+## **5. Conclusion**
+- **April had the highest presence (94.05%), but May saw a dip (89.75%) due to increased WFH and SL%.**  
+- **June showed signs of recovery (91.82%) as WFH and SL percentages dropped.**  
+- **Monday is the most affected day for SL, while Friday consistently has the highest WFH.**  
+- **A strategic hybrid work model and employee wellness programs can further stabilize presence and reduce absenteeism.**  
 
-## 2. **Performance Insights**:
- - Bhubaneswar South leads revenue contribution (10.5%), indicating it is a top-performing zone.
-- Lucknow North has a negative revenue contribution (-2.7%), indicating possible losses or inefficiencies in that zone.
-- Revenue peaked in February 2020, followed by a decline starting in March. The most significant dip occurred in June 2020 with a sharp drop in both revenue and profit margin.
-- The  revenue in the current year (2020) is high compared to the last year (2019) for most months, except for June 2020, where revenue fell significantly below the previous year's performance. 
-- Electricalsara Stores is the top customer, contributing 46.2% of the total revenue, while other top customers like Excel Stores and Premium Stores have a significantly smaller share.
+ **Final Recommendation:**  
+Organizations should **continue monitoring trends** and **adjust policies** based on employee attendance patterns for better workforce productivity. 
+
+---
 
 # References
    https://codebasics.io
