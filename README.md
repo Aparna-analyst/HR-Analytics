@@ -173,7 +173,7 @@ DIVIDE('Measure Table'[WFH Count], 'Measure Table'[Present Days], 0)
 
 
  # Report Snapshot (Power BI DESKTOP)
- ![Screenshot 2025-01-15 160233](https://github.com/user-attachments/assets/b672e349-4d30-4c46-b06c-2d92124879e4)
+ ![Image](https://github.com/user-attachments/assets/a7a56617-5af6-4b38-9570-262ac14b6047)
 
 # Insights
 
