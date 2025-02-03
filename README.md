@@ -88,188 +88,92 @@
 - After transformations, clicked **Close & Apply** to load the cleaned data into Power BI for analysis and visualization.
 - Disabled the load for intermediate steps to optimize the final dataset.
 
----
+
 
   
 ---
-### **5. Dashboard Creation**
-###  **Key insights**
 
-### 1. **Total Revenue**
-   - **Visual Type:** Card  
-   - **Metric:** Total revenue (calculated as the sum of the `sales amount` column).  
-   - **Purpose:** Displays the overall revenue across all years and transactions.
+# Attendance Metrics - Power BI DAX Measures
 
-     
-    
-    Revenue = SUM('sales transactions'[sales_amount])
+This project analyzes employee attendance data using custom DAX measures in Power BI. Below is a detailed summary of the key metrics and their DAX implementations.
 
-### 2. **Total Sales Quantity**
-   - **Visual Type:** Card  
-   - **Metric:** Total sales quantity (calculated as the sum of the `sales quantity` column).  
-   - **Purpose:** Shows the total number of items sold across all transactions.
+### 1. **Total Working Days**  
+This measure calculates the total number of working days by excluding non-working days (WO for weekends and HO for holidays).  
 
-
-    sales Qty = SUM('sales transactions'[sales_qty])
-
-### 3. **Revenue by Customer**
-   - **Visual Type:** Horizontal Bar Chart  
-   - **Metric:** Revenue by customer (sum of `sales amount`, grouped by `customer name`).  
-   - **Purpose:** Highlights revenue contributions from individual customers.
-
-### 4. **Sales Quantity by Customer**
-   - **Visual Type:** Horizontal Bar Chart  
-   - **Metric:** Sales quantity by customer (sum of `sales quantity`, grouped by `customer name`).  
-   - **Purpose:** Displays the quantity of items purchased by individual customers.
-
-### 5. **Sales Revenue by Year** 
-   - **Visual Type:** Slicer (Year), Bar Chart  
-   - **Metric:** Revenue by year (sum of revenue, grouped by year).  
-   - **Purpose:** Tracks sales revenue for each year, allowing comparison of year-over-year performance.
-
-### 6. **Sales by Region** 
-   - **Visual Type:** Horizontal Bar Chart  
-   - **Metric:** Sales quantity and revenue by region (grouped by market name).  
-   - **Purpose:** Displays sales performance by region, helping identify top-performing markets.
-
-### 7. **Top 5 Customers by Revenue** 
-   - **Visual Type:** Bar Chart  
-   - **Metric:** Revenue by top 5 customers (filtered by revenue, showing the highest revenue customers).  
-   - **Purpose:** Highlights the top 5 customers based on revenue, helping to focus on the most profitable clients.
-
-### 8. **Top 5 Products by Revenue** 
-   - **Visual Type:** Bar Chart  
-   - **Metric:** Revenue by top 5 products (filtered by revenue, showing the highest revenue-generating products).  
-   - **Purpose:** Identifies the top-selling products, assisting with inventory and sales strategies.
-
-### 9. **Revenue Trend Over Time** 
-   - **Visual Type:** Line Chart  
-   - **Metric:** Revenue trend by year/month (sum of revenue, grouped by CY date).  
-   - **Purpose:** Displays the trend of revenue over time, helping to assess growth or decline in sales.
-
-
-    Stakeholder Feedback :Presenting the Power BI Dashboard to stakeholders for feedback.
-
----
-###  **Profit Analysis**
-
----
-
-**1. Profit Margin Percentage**  
-   - **Visual:** Measure for profit margin percentage.  
-   - **Metric:** Total profit margin / Revenue.
-      
-   - **Purpose:** To show the percentage of profit margin for each product.
-
-
-```bash
-   
-    Profit margin % = DIVIDE([Total profit Margin],[Revenue],0)
+**DAX:**  
+```DAX
+VAR totaldays = COUNT('Final data'[value])
+VAR nonworkdays = CALCULATE(COUNT('Final data'[value]), 'Final data'[value] IN {"WO", "HO"})
+RETURN totaldays - nonworkdays
 ```
 
 ---
 
-**2. Profit Margin Contribution**  
-   - **Visual:** Measure for profit margin contribution percentage.  
-   - **Metric:** Profit margin for a market / Total profit margin.
-    
-   - **Purpose:** To identify which markets contribute most to profit.
+### 2. **WFH Count (Work From Home Days)**  
+Calculates the total number of work-from-home days.
 
-```bash
-Profit Mragin Contribution % = DIVIDE([Total profit Margin],CALCULATE([Total profit Margin],ALL('sales products'),ALL('sales markets'),ALL('sales customers')))
+**DAX:**  
+```DAX
+SUM('Final data'[WFH Count])
 ```
 
 ---
 
-**3. Aggregation Across Dimensions**  
-   - **Visual:** Aggregated data across products, customers, and markets.  
-   - **Metric:** Profit margin contribution across different dimensions.  
-   - **Purpose:** To analyze contributions across multiple levels.
+### 3. **SL Count (Sick Leave Days)**  
+Calculates the total number of sick leave days.
 
----
-
-**4. Revenue Contribution Percentage**  
-   - **Visual:** Measure for revenue contribution percentage.  
-   - **Metric:** Revenue for a market / Total revenue.  
-   - **Purpose:** To determine which markets contribute most to revenue.
-
- ```bash
- Revenue contribution % = DIVIDE([Revenue],CALCULATE([Revenue],ALL('sales products'),ALL('sales markets'),ALL('sales customers')))
+**DAX:**  
+```DAX
+SUM('Final data'[SL Count])
 ```
 
 ---
 
-**5. Profit vs. Revenue Comparison**  
-   - **Visual:** Comparison of profit vs. revenue contribution.  
-   - **Metric:** Revenue and profit contribution percentages.  
-   - **Purpose:** To identify discrepancies between revenue and profit.
+### 4. **Present Days**  
+Calculates the number of present days, including work-from-home days.  
+
+**DAX:**  
+```DAX
+VAR presentdays = CALCULATE(COUNT('Final data'[value]), 'Final data'[value] = "P")
+RETURN presentdays + [WFH Count]
+```
 
 ---
 
-**6. Customer-Level Analysis**  
-   - **Visual:** Tabular view of customer-level profit margins.  
-   - **Metric:** Profit margin for each customer.  
-   - **Purpose:** To analyze how individual customers contribute to profit.
+### 5. **Presence Percentage**  
+Determines the percentage of presence based on total working days.
+
+**DAX:**  
+```DAX
+DIVIDE('Measure Table'[Present Days], 'Measure Table'[Total working days], 0)
+```
 
 ---
 
-**7. Unprofitable Customers**  
-   - **Visual:** Identifying unprofitable customers.  
-   - **Metric:** Negative profit margin for customers.  
-   - **Purpose:** To identify and address customers causing losses.
+### 6. **SL Percentage (Sick Leave)**  
+Calculates the percentage of sick leave days out of the total working days.
+
+**DAX:**  
+```DAX
+DIVIDE('Measure Table'[SL Count], 'Measure Table'[Total working days], 0)
+```
 
 ---
 
+### 7. **WFH Percentage**  
+Calculates the percentage of work-from-home days out of the present days.
 
-
----
-###  **Performance Insights**
-
----
-
-1. **Sales Comparison**:
-   - **Brick-and-Mortar vs. E-commerce**: Split by sales revenue (79.5% brick-and-mortar, 20% e-commerce).
-   - **Visual:** Pie chart showing sales by channel (brick-and-mortar vs e-commerce).
-
-2. **Dynamic Profit Margin Analysis**:
-   - **Performance Metrics:** Zones with negative profit margins, marked dynamically.
-   - **Visual:** Dynamic coloring of zones where profit margins fall below the target (e.g., below 1% or -5%).
-   - **Purpose:** Identify underperforming zones and take action.
-
-3. **Revenue by Zone**:
-   - **Visual:** Stacked bar chart
-   - **Metric**: Revenue split by geographical zones.
-   - **Purpose:** Shows revenue distribution across regions and helps prioritize regions with low performance.
-
-3. **Revenue trends**:
-   - **Visual:** Line and clustered column chart.
-   -  **Metric:** Primary: Revenue
-          Represented by the grey bars (likely "Revenue LY" for   the       previous year) and the pink bars (likely "Revenue" for the current year)
-Secondary: Profit Margin %
-       Represented by the orange line
-   - **Purpose:** To visualize and compare revenue trends over time.The inclusion of the profit margin line adds another layer of analysis, enabling viewers to understand how revenue changes impact profitability.
+**DAX:**  
+```DAX
+DIVIDE('Measure Table'[WFH Count], 'Measure Table'[Present Days], 0)
+```
 
 ---
 
 
 
-
-
-
-
-
- 
  # Report Snapshot (Power BI DESKTOP)
  ![Screenshot 2025-01-15 160233](https://github.com/user-attachments/assets/b672e349-4d30-4c46-b06c-2d92124879e4)
-
-
- ![Screenshot 2025-01-15 160301](https://github.com/user-attachments/assets/89853a63-f9e2-4927-a939-f02cdec4cd37)
-
- 
-![Screenshot 2025-01-15 160321](https://github.com/user-attachments/assets/3797a445-30a3-455a-9537-15df492ebfcb)
-
- 
-
 
 # Insights
 
