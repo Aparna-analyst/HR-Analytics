@@ -73,6 +73,18 @@
 #### **Step 4: Apply Transformations**
 - Applied transformations to clean and standardize the data.
 - Applied **Unpivot Other Columns** to ensure date data is in a single column.
+- Create a date-based column (e.g., month start dates) using the STARTOFMONTH function.
+- Format the dates in "MMM YY" format and create slicers for month-based analysis
+#### **Step 5: Work from Home Calculations**
+- Create a column using a Switch statement to assign:
+
+   1 for full work-from-home days
+
+   0.5 for half work-from-home days
+
+   0 for other cases
+- Sum this column to create a measure for the total work-from-home count.
+
 
 ---
 
